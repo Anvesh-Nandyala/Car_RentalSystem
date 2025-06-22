@@ -8,14 +8,14 @@ public class Rent {
     private int ID;
     private User user;
     private Car car;
-    private LocalDateTime dataTime;
+    private LocalDateTime dateTime;
     private int hours;
     private double total;
     private String status;
     private DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-dd-MM  hh:mm");
 
     public Rent(){
-        dataTime=LocalDateTime.now();
+        this.dateTime=LocalDateTime.now();
     }
     public int getID(){
         return ID;
@@ -40,10 +40,10 @@ public class Rent {
         this.car=car;
     }
     public String getDateTime(){
-        return formatter.format(dataTime);
+        return formatter.format(dateTime);
     }
     public void setDataTime(String dateTimeString){
-        this.dateTime=LocalDateTime.parse(dateTimeString.formatter);
+        this.dateTime=LocalDateTime.parse(dateTimeString,formatter);
     }
 
     public int getHours(){
