@@ -49,10 +49,10 @@ public class AddNewAdmin implements Operation {
                 ResultSet rs = stmt.getGeneratedKeys();
                 if (rs.next()) {
                     int generatedId = rs.getInt(1);
-                    System.out.println("Admin added successfully with ID: " + generatedId);
+                    System.out.println("Admin added successfully with ID ==> " + generatedId);
                 }
             } else {
-                System.out.println("Failed to add admin.");
+                System.out.println("Failed to add Admin.");
             }
 
 
