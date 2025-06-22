@@ -1,3 +1,7 @@
+package Model;
+
+import java.util.Scanner;
+
 public abstract class User {
     private int ID;
     private String firstName;
@@ -5,7 +9,10 @@ public abstract class User {
     private String email;
     private String phoneNumber;
     private String password;
-
+    //type: 0 ==>Client
+    //type: 1 ==>Admin
+    //type: 2 ==>Delete client account
+    //type: 3 ==>Delete admin account
     public User(){}
 
     public int getID() {
@@ -55,5 +62,5 @@ public abstract class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public abstract void showList();
+    public abstract void showList(Database database, Scanner s);
 }
