@@ -7,7 +7,11 @@ public class Car {
     private String color;
     private int year;
     private double price;
-    private boolean available;
+    private int available;
+
+    //0==> available
+    //1==> rented
+    //2==> deleted
 
     public Car(){}
 
@@ -50,10 +54,10 @@ public class Car {
     public void setPrice(double price){
         this.price=price;
     }
-    public boolean isAvailable(){
+    public int isAvailable(){
         return available;
     }
-    public void setAvailable(boolean available){
+    public void setAvailable(int available){
         this.available=available;
     }
 
