@@ -1,10 +1,10 @@
 package Controller;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
-import Model.Database;
-import Model.Operation;
-import Model.User;
+
+import Model.*;
 
 
 public class AddNewAccount implements Operation {
@@ -40,6 +40,15 @@ public class AddNewAccount implements Operation {
                 "VALUES (?, ?, ?, ?, ?, ?);";
 
         try(PreparedStatement stmt = database.getConnection().prepareStatement(insertSQL, Statement.RETURN_GENERATED_KEYS)){
+            ArrayList<String> emails =new ArrayList<>();
+            ResultSet rs0=database.getStatement().executeQuery("SELECT \"Email\" FROM public.\"carRental\";");
+            while(rs0.next()){
+                emails.add(rs0.getString("Email"));
+            }
+            if(emails.contains(email)){
+                System.out.println("This email is used before");
+                return;
+            }
             stmt.setString(1, firstName);
             stmt.setString(2, lastName);
             stmt.setString(3, email);
@@ -58,6 +67,16 @@ public class AddNewAccount implements Operation {
             } else {
                 System.out.println("Failed to add Admin.");
             }
+            if(accType==0){
+                user=new Client();
+                user.setFirstName(firstName);
+                user.setLastName(lastName);
+                user.setEmail(email);
+                user.setPhoneNumber(phoneNumber);
+                user.setPassword(password);
+                user.showList(database,s);
+            }
+
 
 
         } catch (SQLException e){

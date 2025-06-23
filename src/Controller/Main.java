@@ -19,6 +19,10 @@ public class Main {
         System.out.println("Welcome to Car Rental System");
         System.out.println("Enter your Email :\n(-1) to create new account");
         String email = s.next();
+        if(email.equals("-1")) {
+            new AddNewAccount(0).operation(database,s,null);
+            return;
+        }
         System.out.println("Enter password :");
         String password = s.next();
 
@@ -42,22 +46,32 @@ public class Main {
                 String phoneNumber = rs.getString("PhoneNumber");
                 String pass = rs.getString("Password");
                 int type = rs.getInt("Type");
+                if(type==0){
+                    user = new Client();
+                        user.setID(ID);
+                        user.setFirstName(firstName);
+                        user.setLastName(lastName);
+                        user.setEmail(em);
+                        user.setPhoneNumber(phoneNumber);
+                        user.setPassword(pass);
+                        users.add(user);
 
-                switch (type) {
-                    case 0 -> user = new Client();
-                    case 1 -> user = new Admin();
-                    case 2 -> user = new Client();
+                }else if(type==1){
+                    user = new Admin();
+
+                        user.setID(ID);
+                        user.setFirstName(firstName);
+                        user.setLastName(lastName);
+                        user.setEmail(em);
+                        user.setPhoneNumber(phoneNumber);
+                        user.setPassword(pass);
+                        users.add(user);
+
                 }
 
-                if (user != null) {
-                    user.setID(ID);
-                    user.setFirstName(firstName);
-                    user.setLastName(lastName);
-                    user.setEmail(em);
-                    user.setPhoneNumber(phoneNumber);
-                    user.setPassword(pass);
-                    users.add(user);
-                }
+
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,8 +89,9 @@ public class Main {
 
         if (!found) {
             System.out.println("Invalid email or password.");
+
         }
 
-        s.close(); // Best practice
+        s.close();
     }
 }
