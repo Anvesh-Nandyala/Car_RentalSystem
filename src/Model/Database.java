@@ -2,7 +2,8 @@ package Model;
 
 import java.sql.*;
 
-public class Database extends login {
+public class Database extends creds {
+    private Statement statement;
     private Connection connection;
     public Database(){
         try {
