@@ -39,7 +39,7 @@ public class Car {
     public String getColor(){
         return color;
     }
-    public void setYear(String color){
+    public void setColor(String color){
         this.color=color;
     }
     public int getYear(){
