@@ -11,6 +11,7 @@ public class Client extends User {
             new ReturnCar(),
             new ShowUserRents(-9999),
             new EditUserData(),
+
             new Quit()
     };
     public Client(){
@@ -24,7 +25,8 @@ public class Client extends User {
         System.out.println("3. Return Car");
         System.out.println("4. Show My Rents");
         System.out.println("5. Edit My Data");
-        System.out.println("6. Quit\n");
+        System.out.println("6. Change Password");
+        System.out.println("7. Quit\n");
         int i=s.nextInt();
         operations[i-1].operation(database,s,this);
         showList(database, s);
