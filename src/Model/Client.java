@@ -11,7 +11,7 @@ public class Client extends User {
             new ReturnCar(),
             new ShowUserRents(-9999),
             new EditUserData(),
-
+            new ChangePassword(),
             new Quit()
     };
     public Client(){
