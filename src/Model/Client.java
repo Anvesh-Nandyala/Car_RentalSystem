@@ -27,8 +27,14 @@ public class Client extends User {
         System.out.println("5. Edit My Data");
         System.out.println("6. Change Password");
         System.out.println("7. Quit\n");
-        int i=s.nextInt();
+        int i;
+        i = s.nextInt();
+        if(i<1 || i>7){
+            showList(database, s);
+            return;
+        }
         operations[i-1].operation(database,s,this);
-        showList(database, s);
+
+        if(i!=7) showList(database, s);
     }
 }

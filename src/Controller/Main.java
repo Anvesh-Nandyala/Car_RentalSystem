@@ -89,7 +89,6 @@ public class Main {
 
         if (!found) {
             System.out.println("Invalid email or password.");
-
         }
 
         s.close();

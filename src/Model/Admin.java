@@ -10,7 +10,8 @@ public class Admin extends User {
             new ViewCars(),
             new UpdateCar(),
             new DeleteCar(),
-            new AddNewAccount(1)
+            new AddNewAccount(1),
+            new ShowAllrents()
     };
     public Admin(){
         super();
@@ -23,7 +24,7 @@ public class Admin extends User {
         System.out.println("03. Update Car");
         System.out.println("04. Delete Car");
         System.out.println("05. Add New Admin");
-        //System.out.println("06. Show Rents");
+        System.out.println("06. Show Rents");
         System.out.println("07. Show User's Rents");
         System.out.println("08. Edit my Data");
         System.out.println("09. Change Password");

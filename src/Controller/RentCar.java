@@ -41,6 +41,10 @@ public class RentCar implements Operation {
 
             double total = car.getPrice()*hours;
             Rent rent= new Rent();
+            String updateSQL = "UPDATE public.cars SET \"available\" = 1 WHERE \"ID\" = ?";
+            PreparedStatement updatePstmt = database.getConnection().prepareStatement(updateSQL);
+            updatePstmt.setInt(1, carID);
+            updatePstmt.executeUpdate();
 
             String insertSQL = "INSERT INTO public.rents(" +
                     "\"user\", car, \"dateTime\", hours, total, status) " +
