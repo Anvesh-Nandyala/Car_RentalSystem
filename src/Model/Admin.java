@@ -11,7 +11,11 @@ public class Admin extends User {
             new UpdateCar(),
             new DeleteCar(),
             new AddNewAccount(1),
-            new ShowAllrents()
+            new ShowAllrents(),
+            new ShowSpecUserRents(),
+            new EditUserData(),
+            new ChangePassword(),
+            new Quit()
     };
     public Admin(){
         super();
@@ -30,7 +34,12 @@ public class Admin extends User {
         System.out.println("09. Change Password");
         System.out.println("10. Quit\n");
          int i=s.nextInt();
+         if(i<1 ||i>10){
+             showList(database, s);
+             return;
+         }
          operations[i-1].operation(database, s, this);
          showList(database,s);
+         if(i!=10) showList(database, s);
     }
 }
