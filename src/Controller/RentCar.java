@@ -53,6 +53,7 @@ public class RentCar implements Operation {
             pstmt.setDouble(5, total);
             pstmt.setInt(6, 0);
             pstmt.executeUpdate();
+            System.out.println("Car rented successfully");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

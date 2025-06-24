@@ -1,12 +1,18 @@
 package Model;
 
-import Controller.RentCar;
-import Controller.ViewCars;
+import Controller.*;
 
 import java.util.Scanner;
 
 public class Client extends User {
-    private Operation[] operations=new Operation[]{new ViewCars(),new RentCar()};
+    private Operation[] operations=new Operation[]{
+            new ViewCars(),
+            new RentCar(),
+            new ReturnCar(),
+            new ShowUserRents(-9999),
+            new EditUserData(),
+            new Quit()
+    };
     public Client(){
         super();
     }
