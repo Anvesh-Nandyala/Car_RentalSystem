@@ -83,9 +83,12 @@ public class Rent {
         else if(getStatus()==1){
             status="Returned";
         }
-        return  status;
+        return status;
     }
-
+    public int getDelayedHours(){
+        long passedHours = ChronoUnit.HOURS.between(dateTime, LocalDateTime.now());
+        return Math.toIntExact(passedHours - hours);
+    }
     public void setStatus(int status){
         this.status=status;
     }
