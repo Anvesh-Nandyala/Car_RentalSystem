@@ -1,8 +1,12 @@
 package Model;
 
+import Controller.RentCar;
+import Controller.ViewCars;
+
 import java.util.Scanner;
 
 public class Client extends User {
+    private Operation[] operations=new Operation[]{new ViewCars(),new RentCar()};
     public Client(){
         super();
     }
@@ -15,5 +19,8 @@ public class Client extends User {
         System.out.println("4. Show My Rents");
         System.out.println("5. Edit My Data");
         System.out.println("6. Quit\n");
+        int i=s.nextInt();
+        operations[i-1].operation(database,s,this);
+        showList(database, s);
     }
 }
