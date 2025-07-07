@@ -7,7 +7,7 @@ public class Database extends creds {
     private Connection connection;
     public Database(){
         try {
-            connection = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(creds.DB_URL, creds.DB_USERNAME, creds.DB_PASSWORD);
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e){
             e.printStackTrace();
