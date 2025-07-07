@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: CarRental
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Anvesh@23
+    ports:
+      - "1234:1234"
+    command: ["postgres", "-p", "1234"]
+    networks:
+      - backend
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: car-rental-app
+    depends_on:
+      - db
+    networks:
+      - backend
+
+networks:
+  backend:
